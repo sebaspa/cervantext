@@ -34,7 +34,12 @@
 			<div class="py-5">
 				<div class="grid grid-cols-12 gap-4 items-center relative">
 					<div class="col-span-9 md:col-span-6">
-						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60" /></a>
+						<a href="<?php echo home_url(); ?>">
+							<div class="relative w-60">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/bg-logo.png" alt="bg logo" class="absolute z-0 top-4 bg-logo" />
+								<img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60 z-10 relative" />
+							</div>
+						</a>
 					</div>
 					<div class="col-span-3 md:col-span-6 mx-auto md:mr-0">
 						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-xl" id="btn-menu-mobile">
