@@ -63,6 +63,8 @@ wp-config.php
 
 # Example themes
 themes/twenty*/
+themes/cervantext/node_modules
+themes/cervantext/dist
 
 # Example plugin
 plugins/hello.php
