@@ -7,8 +7,8 @@ body {
   font-family: "Lato", sans-serif;
 }
 @layer components {
-  /*Menu principal*/
 
+  /*Menu principal*/
   #primary-menu {
     @apply flex flex-col md:flex-row gap-4 md:gap-0 md:justify-end;
   }
@@ -20,4 +20,28 @@ body {
   #primary-menu li:nth-child(2) a {
     @apply text-white bg-black rounded hover:bg-yellow-500 hover:text-black hover:shadow-xl;
   }
+
+  /*Menu principal footer*/
+  #primary-menu-footer {
+    @apply flex items-center flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-end;
+  }
+
+  #primary-menu-footer li a {
+    @apply text-lg py-2 px-5 text-center;
+  }
+
+  #primary-menu-footer li:nth-child(2) a {
+    @apply text-white bg-black rounded hover:bg-yellow-500 hover:text-black hover:shadow-xl;
+  }
+
+  /*Menu footer*/
+
+  #footer-menu {
+    @apply flex items-center justify-center md:justify-end gap-5;
+  }
+ 
+  #footer-menu li a {
+    @apply text-sm md:text-lg text-gray-500/75;
+  }
+
 }

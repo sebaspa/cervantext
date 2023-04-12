@@ -50,6 +50,7 @@ function cervantext_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'cervantext' ),
+			'menu-2' => esc_html__( 'Footer', 'cervantext' ),
 		)
 	);
 
@@ -170,11 +171,4 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 

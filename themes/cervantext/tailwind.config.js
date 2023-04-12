@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [ './**/*.{php,js}' ],
+	content: [ './**/*.php' ],
 	theme: {
 		extend: {
 			colors: {
@@ -26,9 +26,21 @@ module.exports = {
 					800: '#605c06',
 					900: '#302e03',
 				},
+				gray: {
+					100: '#d6d6d6',
+					200: '#adadad',
+					300: '#858585',
+					400: '#5c5c5c',
+					500: '#333333',
+					600: '#292929',
+					700: '#1f1f1f',
+					800: '#141414',
+					900: '#0a0a0a',
+				},
 			},
 			fontFamily: {
 				lato: [ 'Lato', 'sans-serif' ],
+				varela: [ 'Varela', 'sans-serif' ],
 			},
 		},
 	},
