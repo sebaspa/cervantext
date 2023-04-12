@@ -21,6 +21,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<?php wp_head(); ?>
 </head>
 
@@ -29,41 +30,26 @@
 	<div class="bg-light-pink-500">
 		<div class="container max-w-6xl mx-auto px-4">
 			<div class="py-5">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60" />
+				<div class="grid grid-cols-12 gap-4 items-center relative">
+					<div class="col-span-9 md:col-span-6">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60" />
+					</div>
+					<div class="col-span-3 md:col-span-6 mx-auto">
+						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-xl" id="btn-menu-mobile">
+							<i class="fa-solid fa-bars"></i>
+						</div>
+						<div class="absolute md:relative hidden md:block bg-light-pink-500 left-[4%] md:left-0 w-[90%] md:w-auto shadow-xl md:shadow-none rounded py-4 md:py-0 px-5 md:px-0" id="menu-mobile">
+							<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_id'        => 'primary-menu',
+								)
+							);
+							?>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if (is_front_page() && is_home()) :
-			?>
-				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-			<?php
-			else :
-			?>
-				<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-			<?php
-			endif;
-			$cervantext_description = get_bloginfo('description', 'display');
-			if ($cervantext_description || is_customize_preview()) :
-			?>
-				<p class="site-description"><?php echo $cervantext_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'cervantext'); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-
-	</header><!-- #masthead -->
