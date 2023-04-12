@@ -143,6 +143,7 @@ function cervantext_scripts() {
 	wp_enqueue_style( 'cervantext-tw-style', get_template_directory_uri()."/dist/styles.css", array(), _S_VERSION );
 	wp_style_add_data( 'cervantext-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'typedjs', 'https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js', array(), '2.0.15', true );
 	wp_enqueue_script( 'cervantext-app', get_template_directory_uri() . '/js/app.js', array('jquery'), _S_VERSION, true );
 	//wp_enqueue_script( 'cervantext-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
