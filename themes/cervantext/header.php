@@ -35,10 +35,10 @@
 						<img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60" />
 					</div>
 					<div class="col-span-3 md:col-span-6 mx-auto">
-						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-xl">
+						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-xl" id="btn-menu-mobile">
 							<i class="fa-solid fa-bars"></i>
 						</div>
-						<div class="absolute md:relative hidden md:block bg-light-pink-500 left-[4%] md:left-0 w-[90%] md:w-auto shadow-xl md:shadow-none rounded py-4 md:py-0 px-5 md:px-0">
+						<div class="absolute md:relative hidden md:block bg-light-pink-500 left-[4%] md:left-0 w-[90%] md:w-auto shadow-xl md:shadow-none rounded py-4 md:py-0 px-5 md:px-0" id="menu-mobile">
 							<?php
 							wp_nav_menu(
 								array(
