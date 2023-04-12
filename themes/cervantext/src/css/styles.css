@@ -7,7 +7,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 @layer components {
-
   /*Menu principal*/
   #primary-menu {
     @apply flex flex-col md:flex-row gap-4 md:gap-0 md:justify-end;
@@ -39,9 +38,20 @@ body {
   #footer-menu {
     @apply flex items-center justify-center md:justify-end gap-5;
   }
- 
+
   #footer-menu li a {
     @apply text-sm md:text-lg text-gray-500/75;
   }
 
+  /*Home*/
+
+  /*Banner 1*/
+
+  #lineas-cervantes-1 img {
+    @apply block;
+  }
+
+  #banner-1-link a {
+    @apply hover:shadow-lg;
+  }
 }
