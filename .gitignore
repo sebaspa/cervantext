@@ -69,6 +69,8 @@ themes/cervantext/dist
 # Example plugin
 plugins/hello.php
 plugins/akismet
+plugins/elementor
+plugins/wp-migrate-db
 
 # Uploads
 uploads/

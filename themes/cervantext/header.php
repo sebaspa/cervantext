@@ -34,13 +34,18 @@
 			<div class="py-5">
 				<div class="grid grid-cols-12 gap-4 items-center relative">
 					<div class="col-span-9 md:col-span-6">
-						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60" /></a>
+						<a href="<?php echo home_url(); ?>">
+							<div class="relative w-60">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/bg-logo.png" alt="bg logo" class="absolute z-0 top-4 bg-logo" />
+								<img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60 z-10 relative" />
+							</div>
+						</a>
 					</div>
 					<div class="col-span-3 md:col-span-6 mx-auto md:mr-0">
-						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-xl" id="btn-menu-mobile">
+						<div class="md:hidden w-min rounded bg-black text-white py-2 px-5 hover:bg-yellow-500 hover:text-black hover:shadow-lg" id="btn-menu-mobile">
 							<i class="fa-solid fa-bars"></i>
 						</div>
-						<div class="absolute md:relative hidden md:block bg-light-pink-500 left-[4%] md:left-0 w-[90%] md:w-auto shadow-xl md:shadow-none rounded py-4 md:py-0 px-5 md:px-0" id="menu-mobile">
+						<div class="absolute md:relative hidden md:block bg-light-pink-500 left-[4%] md:left-0 w-[90%] md:w-auto shadow-xl md:shadow-none rounded py-4 md:py-0 px-5 md:px-0 z-10" id="menu-mobile">
 							<?php
 							wp_nav_menu(
 								array(

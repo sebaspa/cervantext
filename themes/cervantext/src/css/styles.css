@@ -1,14 +1,36 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 html,
 body {
   font-family: "Lato", sans-serif;
 }
-@layer components {
 
+.btn-primary a {
+  @apply hover:shadow-lg;
+}
+
+@layer components {
   /*Menu principal*/
+  .bg-logo {
+    width: 0;
+    height: 25px;
+    margin-left: calc(100% - 80px);
+    animation: slideRightLogo 4s infinite ease-in-out;
+  }
+
+  @keyframes slideRightLogo {
+    100% {
+      width: 80px;
+    }
+    0% {
+      width: 0px;
+    }
+    20% {
+      width: 0px;
+    }
+  }
+
   #primary-menu {
     @apply flex flex-col md:flex-row gap-4 md:gap-0 md:justify-end;
   }
@@ -18,7 +40,7 @@ body {
   }
 
   #primary-menu li:nth-child(2) a {
-    @apply text-white bg-black rounded hover:bg-yellow-500 hover:text-black hover:shadow-xl;
+    @apply text-white bg-black rounded hover:bg-yellow-500 hover:text-black hover:shadow-md;
   }
 
   /*Menu principal footer*/
@@ -39,9 +61,135 @@ body {
   #footer-menu {
     @apply flex items-center justify-center md:justify-end gap-5;
   }
- 
+
   #footer-menu li a {
     @apply text-sm md:text-lg text-gray-500/75;
   }
 
+  /*Home*/
+
+  /*Banner 1*/
+
+  #lineas-cervantes-1 {
+    width: 0;
+    height: auto;
+    animation: slideRight1 3s forwards ease-in-out;
+  }
+
+  @keyframes slideRight1 {
+    100% {
+      width: 100%;
+      height: auto;
+    }
+    0% {
+      width: 0px;
+      height: auto;
+    }
+    30% {
+      width: 0px;
+      height: auto;
+    }
+  }
+
+  /*Buen contenido*/
+  #franja-cervantes-sentado {
+    width: 0;
+    height: 90px;
+    animation: slideRight2 4s infinite ease-in-out;
+  }
+
+  #franja-cervantes-sentado img {
+    height: 90px;
+  }
+
+  @keyframes slideRight2 {
+    100% {
+      width: 314px;
+      height: 90px;
+    }
+    0% {
+      width: 0px;
+      height: 90px;
+    }
+    20% {
+      width: 0px;
+      height: 90px;
+    }
+  }
+
+  #img-caballos .elementor-widget-container {
+   position: absolute !important;
+  }
 }
+.animation-text-10s {
+  background-image: url("../images/bg-text.png");
+  background-repeat: no-repeat;
+  animation: bgTextAnimated 12s infinite ease-in-out;
+}
+
+@keyframes bgTextAnimated {
+  0% {
+    background-position-x: -1330px;
+  }
+  10% {
+    background-position-x: -1330px;
+  }
+  40% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+#franja-ciudad {
+  width: 0;
+  height: 115px;
+  animation: slideRight3 4s infinite ease-in-out;
+}
+
+#franja-ciudad img {
+  height: 115px;
+}
+
+@keyframes slideRight3 {
+  100% {
+    width: 400px;
+    height: 115px;
+  }
+  0% {
+    width: 0px;
+    height: 115px;
+  }
+  20% {
+    width: 0px;
+    height: 115px;
+  }
+}
+
+#franja-jinetes {
+  width: 0;
+  height: 86px;
+  animation: slideRight4 4s infinite ease-in-out;
+}
+
+#franja-jinetes img {
+  height: 86px;
+}
+
+@keyframes slideRight4 {
+  100% {
+    width: 300px;
+    height: 86px;
+  }
+  0% {
+    width: 0px;
+    height: 86px;
+  }
+  20% {
+    width: 0px;
+    height: 86px;
+  }
+}
+
+@tailwind utilities;

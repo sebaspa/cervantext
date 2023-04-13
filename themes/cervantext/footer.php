@@ -19,7 +19,10 @@
         <div class="border-t border-b border-gray-400 py-10 grid grid-cols-12 gap-4 items-center">
             <div class="col-span-12 sm:col-span-6">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60 mx-auto sm:ml-0" />
+                    <div class="relative w-60 mx-auto sm:ml-0">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/bg-logo.png" alt="bg logo" class="absolute z-0 top-4 bg-logo" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="cervantext logo" class="w-60 z-10 relative" />
+                    </div>
                 </a>
             </div>
             <div class="col-span-12 sm:col-span-6">
@@ -39,7 +42,7 @@
                 <p class="text-sm md:text-lg text-center md:text-left text-gray-500/75">Cervantext© 2022. Todos los derechos reservados</p>
             </div>
             <div class="col-span-12 md:col-span-6">
-            <?php
+                <?php
                 wp_nav_menu(
                     array(
                         'theme_location' => 'menu-2',

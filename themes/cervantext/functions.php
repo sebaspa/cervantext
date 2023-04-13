@@ -61,11 +61,11 @@ function cervantext_setup() {
 	add_theme_support(
 		'html5',
 		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
+			//'search-form',
+			//'comment-form',
+			//'comment-list',
+			//'gallery',
+			//'caption',
 			'style',
 			'script',
 		)
@@ -143,8 +143,9 @@ function cervantext_scripts() {
 	wp_enqueue_style( 'cervantext-tw-style', get_template_directory_uri()."/dist/styles.css", array(), _S_VERSION );
 	wp_style_add_data( 'cervantext-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'cervantext-mainMenu', get_template_directory_uri() . '/js/mainMenu.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( 'cervantext-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'typedjs', 'https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js', array(), '2.0.15', true );
+	wp_enqueue_script( 'cervantext-app', get_template_directory_uri() . '/js/app.js', array('jquery'), _S_VERSION, true );
+	//wp_enqueue_script( 'cervantext-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -152,23 +153,10 @@ function cervantext_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'cervantext_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
