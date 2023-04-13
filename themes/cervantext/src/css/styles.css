@@ -5,6 +5,11 @@ html,
 body {
   font-family: "Lato", sans-serif;
 }
+
+.btn-primary a {
+  @apply hover:shadow-lg;
+}
+
 @layer components {
   /*Menu principal*/
   .bg-logo {
@@ -65,10 +70,6 @@ body {
 
   /*Banner 1*/
 
-  #banner-1-link a {
-    @apply hover:shadow-lg;
-  }
-
   #lineas-cervantes-1 {
     width: 0;
     height: auto;
@@ -115,6 +116,10 @@ body {
       height: 90px;
     }
   }
+
+  #img-caballos .elementor-widget-container {
+   position: absolute !important;
+  }
 }
 .animation-text-10s {
   background-image: url("../images/bg-text.png");
@@ -123,10 +128,18 @@ body {
 }
 
 @keyframes bgTextAnimated {
-  0% {background-position-x: -1330px}
-  10% {background-position-x: -1330px}
-  40% {background-position-x: 0px}
-  100% {background-position-x: 0px}
+  0% {
+    background-position-x: -1330px;
+  }
+  10% {
+    background-position-x: -1330px;
+  }
+  40% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
 }
 
 #franja-ciudad {
