@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 html,
 body {
@@ -66,11 +65,68 @@ body {
 
   /*Banner 1*/
 
-  #lineas-cervantes-1 img {
-    @apply block;
-  }
-
   #banner-1-link a {
     @apply hover:shadow-lg;
   }
+
+  #lineas-cervantes-1 {
+    width: 0;
+    height: auto;
+    animation: slideRight1 3s forwards ease-in-out;
+  }
+
+  @keyframes slideRight1 {
+    100% {
+      width: 100%;
+      height: auto;
+    }
+    0% {
+      width: 0px;
+      height: auto;
+    }
+    30% {
+      width: 0px;
+      height: auto;
+    }
+  }
+
+  /*Buen contenido*/
+  #franja-cervantes-sentado {
+    width: 0;
+    height: 90px;
+    animation: slideRight2 4s infinite ease-in-out;
+  }
+
+  #franja-cervantes-sentado img {
+    height: 90px;
+  }
+
+  @keyframes slideRight2 {
+    100% {
+      width: 314px;
+      height: 90px;
+    }
+    0% {
+      width: 0px;
+      height: 90px;
+    }
+    20% {
+      width: 0px;
+      height: 90px;
+    }
+  }
 }
+.animation-text-10s {
+  background-image: url("../images/bg-text.png");
+  background-repeat: no-repeat;
+  animation: bgTextAnimated 12s infinite ease-in-out;
+}
+
+@keyframes bgTextAnimated {
+  0% {background-position-x: -1330px}
+  10% {background-position-x: -1330px}
+  40% {background-position-x: 0px}
+  100% {background-position-x: 0px}
+}
+
+@tailwind utilities;
