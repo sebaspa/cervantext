@@ -129,4 +129,29 @@ body {
   100% {background-position-x: 0px}
 }
 
+#franja-ciudad {
+  width: 0;
+  height: 115px;
+  animation: slideRight3 4s infinite ease-in-out;
+}
+
+#franja-ciudad img {
+  height: 115px;
+}
+
+@keyframes slideRight3 {
+  100% {
+    width: 400px;
+    height: 115px;
+  }
+  0% {
+    width: 0px;
+    height: 115px;
+  }
+  20% {
+    width: 0px;
+    height: 115px;
+  }
+}
+
 @tailwind utilities;
