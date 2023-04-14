@@ -39,12 +39,34 @@ class Questions extends Widget_Base
         $prefix = 'questions_';
         // Content Settings
         $this->start_controls_section(
-            'content_settings',
+            'title_section',
             [
-                'label' => __('Configuración', 'cervantext'),
+                'label' => __('Título', 'cervantext'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+
+        $this->add_control(
+            $prefix . 'title',
+            [
+                'label' => __('Título', 'cervantext'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Preguntas clave', 'cervantext'),
+                'label_block' => true
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Content Settings
+        $this->start_controls_section(
+            'questions_section',
+            [
+                'label' => __('Preguntas', 'cervantext'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
         // Questions Repeater
         $repeater = new \Elementor\Repeater();
 
@@ -57,7 +79,7 @@ class Questions extends Widget_Base
                 'label_block' => true
             ]
         );
-        
+
         $repeater->add_control(
             $prefix . 'response_text',
             [
@@ -92,6 +114,45 @@ class Questions extends Widget_Base
 
     private function style_tab()
     {
+        $this->start_controls_section(
+            'title_style_section',
+            [
+                'label' => __('Título', 'cervantext'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'content_title',
+            [
+                'label' => __('Título', 'cervantext'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        // Title Color
+        $this->add_control(
+            'content_title_color',
+            [
+                'label' => __( 'Color', 'cervantext' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .questions h2' => 'color: {{VALUE}}',
+                ],
+                'default' => '#333',
+            ]
+        );
+
+        // Title Typography
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'content_title_typography',
+                'label' => __( 'Fuente', 'cervantext' ),
+                'selector' => '{{WRAPPER}} .questions h2',
+            ]
+        );
     }
 
     protected function render()
@@ -99,21 +160,21 @@ class Questions extends Widget_Base
         $prefix = 'questions_';
         $settings = $this->get_settings_for_display();
 ?>
-        <div class="container max-w-6xl mx-auto px-4 mb-5">
-            <h2 class="text-3xl text-gray-500 font-bold font-lato text-center mb-10">Preguntas clave</h2>
+        <div class="questions container max-w-6xl mx-auto px-4 mb-5">
+            <h2 class="text-3xl text-gray-500 font-bold font-lato text-center mb-10" <?php echo $this->get_render_attribute_string( $prefix.'title' ); ?>><?php echo $settings[ $prefix.'title' ]; ?></h2>
             <div class="max-w-2xl mx-auto">
                 <?php foreach ($settings[$prefix . 'question_repeater'] as $question) : ?>
-                <div class="py-5 px-7 mb-4 bg-white rounded-lg transition duration-300">
-                    <div class="flex items-center justify-between mb-4 cursor-pointer btn-toggle-question">
-                        <p class="text-md md:text-lg font-bold font-lato text-gray-500"><?php esc_attr_e($question[$prefix . 'question_text']); ?></p>
-                        <i class="fa-solid fa-plus text-xl text-gray-500 transform transition duration-300 ease-in-out"></i>
+                    <div class="py-5 px-7 mb-4 bg-white rounded-lg transition duration-300">
+                        <div class="flex items-center justify-between mb-4 cursor-pointer btn-toggle-question">
+                            <p class="text-md md:text-lg font-bold font-lato text-gray-500"><?php esc_attr_e($question[$prefix . 'question_text']); ?></p>
+                            <i class="fa-solid fa-plus text-xl text-gray-500 transform transition duration-300 ease-in-out"></i>
+                        </div>
+                        <div class="hidden response-content">
+                            <p class="text-base font-lato text-gray-300">
+                                <?php esc_attr_e($question[$prefix . 'response_text']); ?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="hidden response-content">
-                        <p class="text-base font-lato text-gray-300">
-                            <?php esc_attr_e($question[$prefix . 'response_text']); ?>
-                        </p>
-                    </div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </div>
