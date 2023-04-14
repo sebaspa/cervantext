@@ -23,3 +23,23 @@ if ( jQuery( '#banner-tiping-msg' ).length ) {
 		loop: true,
 	} );
 }
+
+/**
+ * Preguntas frecuentes
+ */
+
+if ( jQuery( '.btn-toggle-question' ).length ) {
+	jQuery( '.btn-toggle-question' ).on( 'click', function() {
+		const btnElement = jQuery( this );
+		btnElement.find( 'i' ).toggleClass( 'rotate-45' );
+		btnElement
+			.parent( 'div' )
+			.toggleClass( 'bg-light-pink-500' )
+			.toggleClass( 'bg-white' );
+		btnElement
+			.parent( 'div' )
+			.find( '.response-content' )
+			.stop( true, true )
+			.fadeToggle();
+	} );
+}
